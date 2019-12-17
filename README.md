@@ -51,6 +51,14 @@ This is a useful, but not required, Chrome extension for viewing JSON output in 
 
 [Install using a Chrome browser](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa)
   
+---
+# ~~ The World of Containers ~~
+
+Intro to Docker 
+- Explain docker...containers...
+do a hello world run of an app...
+
+Maybe introduce how to create your own docker container... maybe a hello world python app so they will be more familar with the one they start to work with later. 
 
 ---
 
@@ -86,20 +94,10 @@ And the team has delivered.  They have created an [OCI compatible image](https:/
 
 You're ready to kick the tires on this service to get a feel for it, with an end goal of creating the Kubernetes manifests that can host the appliation.  The manifests, in YAML format, will live alongside this codebase and augment the foundational codebase with the foundational Configuration as Code to run it in any Kubernetes cluster.
 
-* Deploy with `kubectl run`
-* port-forward to consume
-* Note how that if you delete the Pod it comes right back
-* Scale the deployment from the command line
-* Capture the resulting deployment with `kubectl get` and store to file
-* Delete existing deployment and modify the declarative Deployment to have an initial replica count of 3
-* Modify deployment to set environment variables
-* Define a Service and Ingress
-* Try to hit an endpoint which interacts with Redis (should error since redis isn't running)
-* Deploy a single node Redis and expose it at a service with `kubectl`
-* Configure liveness and readiness probes
+
 
 ---
-
+CHANGEME - Do we need to clone now or do we just start playing with Docker first...
 # ~~ Set up your local workspace ~~
 
 ## Clone this repository
