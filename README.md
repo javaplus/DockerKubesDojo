@@ -1,7 +1,7 @@
 # Docker and Kubernetes Dojo
 Tutorial on Using Docker and Kubernetes
 
-**Big thanks to Michael Frayer for most of the content of this tutorial is from him!** 
+**Big thanks to [Michael Frayer](https://github.com/frayer) for most of the content of this tutorial is from him!** 
 
 
 ## Pre-requisites:
