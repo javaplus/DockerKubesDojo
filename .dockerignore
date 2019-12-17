@@ -1,0 +1,10 @@
+.dockerignore
+.editorconfig
+.git
+.gitignore
+Dockerfile
+Dockerfile-tools
+venv
+k8s
+__pycache__
+skaffold.yaml
