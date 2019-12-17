@@ -15,7 +15,7 @@ spec:
         run: cn-demo
     spec:
       containers:
-      - image: dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo:1
+      - image: CHANGEME/cloud-native-demo:1
         imagePullPolicy: IfNotPresent
         name: cn-demo
         env:

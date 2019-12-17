@@ -66,7 +66,7 @@ The features you've asked for in this foundational application include:
 * The application supports Infrastructure as Code principles to enable a Continuous Delivery pipeline.
 * The application must expose information about its health in order for Kubernetes to know it's running and can accept traffic.
 
-And the team has delivered.  They have created an [OCI compatible image](https://www.opencontainers.org/) and have already loaded it into the [Docker Trusted Registry](https://dtr.aws.e1.nwie.net/repositories/frayerm1/cloud-native-demo/info).  They've given you the following information on how it behaves and the default URL endpoints it exposes.
+And the team has delivered.  They have created an [OCI compatible image](https://www.opencontainers.org/) and have already loaded it into the [Docker Trusted Registry](Change ME!).  They've given you the following information on how it behaves and the default URL endpoints it exposes.
 
 * It's a Python application with a dependency on a Redis instance.  The application is configurable through command line switches and the documentation for them can be found by running `python app.py --help`.
 * When running, it listens for HTTP connections on port `5000` by default.  This is configurable.
@@ -109,7 +109,7 @@ You'll be working with this repository and configuration contanied within.  Clon
 > TIP: Run the following command from a directory containing no paths.  On Windows, a root directory of `C:\devl\ws` is a good convention.  In MacOS or Linux, this author uses a convention of `$HOME/code`.
 
 ```bash
-git clone https://github.nwie.net/frayerm1/cloud-native-demo.git
+git clone https://github.com/javaplus/DockerKubesDojo.git
 ```
 
 ---
@@ -120,14 +120,14 @@ Before you even think about running this in Kubernetes, you want to run a single
 
 ## Run the cloud-native-demo image and expose its port
 
-> HINT: The string `dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo:1` captures the coordinates of the Docker/OCI image.  It follows the pattern `{hostname to retrieve image}/{repository name}/{image name}:{tag}`.
+> HINT: The string CHANGEME `cloud-native-demo:1` captures the coordinates of the Docker/OCI image.  It follows the pattern `{hostname to retrieve image}/{repository name}/{image name}:{tag}`.
 
 > HINT: The `--rm` just cleans up any remaining bits after this application runs.  It's completely stateless, so we don't need to remember anything about its execution in this scenario.
 
 > HINT: The `-p` switch exposes the port the container listens on to your localhost interface.
 
 ```bash
-docker run --rm -it -p 5000:5000 dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo:1
+docker run --rm -it -p 5000:5000 CHANGEME/cloud-native-demo:1
 ```
 
 ## Validate the application container is running
@@ -156,12 +156,12 @@ The tools Docker image does not contain authentication tokens to connect to your
 
 **Windows**
 ```bash
-docker run --rm -it -v C:\Users\<username>\.kube\:/root/.kube dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo-tools bash
+docker run --rm -it -v C:\Users\<username>\.kube\:/root/.kube CHANGEME/cloud-native-demo-tools bash
 ```
 
 **MacOS/Linux**
 ```bash
-docker run --rm -it -v $HOME/.kube/:/root/.kube dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo-tools bash
+docker run --rm -it -v $HOME/.kube/:/root/.kube CHANGEME/cloud-native-demo-tools bash
 ```
 
 Once you see a `bash` prompt, type the following command.  You're technically on a Linux bash prompt at this point, so the next command is the same for all desktop platforms.
@@ -180,7 +180,7 @@ Next we want to run the **real** application in Kubernetes and not just this **t
 **In a new console window** run the following to run the `cloud-native-demo` image as a container in Kubernetes:
 
 ```bash
-kubectl run cn-demo --image=dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo:1
+kubectl run cn-demo --image=CHANGEME/cloud-native-demo:1
 ```
 
 Watch your console based dashboard.  You should see a Pod that starts with the name `cn-demo-` show up.  Behind the scenes, Kubernetes is retrieving the image and executing it using Docker (in the case of the Kubernetes instance provided by Docker Desktop).  If all goes well, you should eventually see that the Pod is up and running with output in the dashboard similar to the following:
@@ -299,7 +299,7 @@ Right now we have a lot of `null` values for the `user_defined_#` variables.  Le
 
 ```yaml
       containers:
-      - image: dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo:1
+      - image: CHANGEME/cloud-native-demo:1
         imagePullPolicy: IfNotPresent
         name: cn-demo
 ```
@@ -340,7 +340,7 @@ While our application has the ability to read directly from the configured Envir
 This program actually accepts a few configuration values on the CLI.  Our always helpful development team left a `--help` argument in there to help discover what some of them are.  Let's run that now in a new container using Docker.  It only needs to run long enough to give us the output.  In a new console window, run the following:
 
 ```bash
-docker run --rm dtr.aws.e1.nwie.net/frayerm1/cloud-native-demo:1 python app.py --help
+docker run --rm CHANGEME/cloud-native-demo:1 python app.py --help
 ```
 
 You should see the following output:
