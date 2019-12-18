@@ -51,6 +51,11 @@ This is a useful, but not required, Chrome extension for viewing JSON output in 
 
 [Install using a Chrome browser](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa)
   
+---
+
+# ~~ Intro to Docker and Containers ~~
+
+Lab1 [Intro to Docker and Containers](labs/docker_intro.md)
 
 
 ---
