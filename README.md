@@ -84,7 +84,7 @@ Lab6 [Environment Variables](labs/kube_env_vars.md)
 
 # ~~ Kubernetes Override Starting Command   ~~
 
-Lab7 [Setting the Command to Run](labs/kube_overriding_cmd.md)
+Lab7 [Setting the Command to Run](labs/kube_override_cmd.md)
 
 # ~~ Kubernetes Ingress   ~~
 
