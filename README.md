@@ -51,14 +51,7 @@ This is a useful, but not required, Chrome extension for viewing JSON output in 
 
 [Install using a Chrome browser](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa)
   
----
-# ~~ The World of Containers ~~
 
-Intro to Docker 
-- Explain docker...containers...
-do a hello world run of an app...
-
-Maybe introduce how to create your own docker container... maybe a hello world python app so they will be more familar with the one they start to work with later. 
 
 ---
 
@@ -110,31 +103,6 @@ You'll be working with this repository and configuration contanied within.  Clon
 git clone https://github.com/javaplus/DockerKubesDojo.git
 ```
 
----
-
-# ~~ Running locally with Docker Desktop ~~
-
-Before you even think about running this in Kubernetes, you want to run a single instance of it using your local Docker Desktop instance.  While a Kuberentes cluster will ultimately run your application container reliably at scale, it all starts with knowing how to run a single instance using the Docker runtime.
-
-## Run the cloud-native-demo image and expose its port
-
-> HINT: The string CHANGEME `cloud-native-demo:1` captures the coordinates of the Docker/OCI image.  It follows the pattern `{hostname to retrieve image}/{repository name}/{image name}:{tag}`.
-
-> HINT: The `--rm` just cleans up any remaining bits after this application runs.  It's completely stateless, so we don't need to remember anything about its execution in this scenario.
-
-> HINT: The `-p` switch exposes the port the container listens on to your localhost interface.
-
-```bash
-docker run --rm -it -p 5000:5000 CHANGEME/cloud-native-demo:1
-```
-
-## Validate the application container is running
-
-In your browser, navigate to the URL [http://localhost:5000](http://localhost:5000).  You should see a JSON response with some information about the running application.  If not, double check the `docker run ...` command you issued and look for any errors in the console output.
-
-## Stop the container
-
-In the original CLI window where you issued the `docker run ...` command, type `CTRL+C` to stop the container.
 
 ---
 
@@ -144,31 +112,7 @@ Now that you know how to run a single instance, it's time to try the same in Kub
 
 ## Kubernetes text based dashboard
 
-Your team loves you so much they also created a small **tools** Docker image with handy CLI tooling to help visualize and troubleshoot what's going on in your local Kubernetes namespace.  It's a great way to share tools amongst the team, so you decide to start it up.  The Docker image they gave you has the `watch` and `kubectl` commands, which you're about to see are a handy way to keep tabs on what Pods or other services are configured and running in your namespace.
 
-The tools Docker image does not contain authentication tokens to connect to your local Kubernetes cluster (everyone has their own), so we'll mount those from your local machine into the running tools container so they're available to `kubectl`.  We're mounting into the default location as well so we don't need to configure anything additional
-
-> Note the `-it` and `bash` in this CLI statement.  These say "run the bash CLI interpreter in interactive mode" which will give us a bash prompt once the container is running.
-
-> Note: In the following command, replace `<username>` with the path to your own local user directory.  If executing in Git Bash (mintty) you will need to include `winpty` at the beginning of the command.
-
-**Windows**
-```bash
-docker run --rm -it -v C:\Users\<username>\.kube\:/root/.kube CHANGEME/cloud-native-demo-tools bash
-```
-
-**MacOS/Linux**
-```bash
-docker run --rm -it -v $HOME/.kube/:/root/.kube CHANGEME/cloud-native-demo-tools bash
-```
-
-Once you see a `bash` prompt, type the following command.  You're technically on a Linux bash prompt at this point, so the next command is the same for all desktop platforms.
-
-```bash
-watch -n 1 kubectl get all,endpoints,ingress
-```
-
-You now have a text-based dashboard updating every 1 second of your namespace showing Pods, Deployments, Services, Endpoints and Ingress.  You can type `CTRL+C` to exit this dashboard and then `CTRL+D` to exit out of the container (which also terminates this particular container), but lets keep it running for now.
 
 
 ## Run the cloud-native-demo image in Kubernetes
