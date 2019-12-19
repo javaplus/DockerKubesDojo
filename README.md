@@ -99,7 +99,7 @@ Lab10 [Readiness in Kubes Part 2](labs/kube_readiness_2.md)
 
 ---
 
-# ~~ Getting started ~~
+# ~~ The Mission ~~
 
 You and your team are on a mission to begin rearchitecting your monolithic application towards a micro-service based architecture.  While your team has some experience working with Containers, they've asked for your help in realizing the full potential of Cloud Native patterns when it comes to the design and operational concerns of your new architecture.  You did your homework on [12-factor apps](https://12factor.net/) and the feature set of [Kubernetes](https://kubernetes.io/docs/concepts/) and have given your team a set of requirements to produce a first cut of a microservice which will serve as the foundational codebase for all your microservices.
 
@@ -132,20 +132,6 @@ And the team has delivered.  They have created an [OCI compatible image](https:/
 You're ready to kick the tires on this service to get a feel for it, with an end goal of creating the Kubernetes manifests that can host the appliation.  The manifests, in YAML format, will live alongside this codebase and augment the foundational codebase with the foundational Configuration as Code to run it in any Kubernetes cluster.
 
 
-
----
-CHANGEME - Do we need to clone now or do we just start playing with Docker first...
-# ~~ Set up your local workspace ~~
-
-## Clone this repository
-
-You'll be working with this repository and configuration contanied within.  Clone it to a location of your choosing and open the directory in VS Code.
-
-> TIP: Run the following command from a directory containing no paths.  On Windows, a root directory of `C:\devl\ws` is a good convention.  In MacOS or Linux, this author uses a convention of `$HOME/code`.
-
-```bash
-git clone https://github.com/javaplus/DockerKubesDojo.git
-```
 
 
 ---
