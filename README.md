@@ -53,48 +53,27 @@ This is a useful, but not required, Chrome extension for viewing JSON output in 
   
 ---
 
-# ~~ Intro to Docker and Containers ~~
+# ~~ Labs ~~
 
-Lab1 [Intro to Docker and Containers](labs/docker_intro.md)
+1. [Intro to Docker and Containers](labs/docker_intro.md)
 
+1. [Docker with Cloud Native App](labs/docker_cloud_app.md)
 
-# ~~ Docker with Cloud Native App ~~
+1. [Kubernetes Intro](labs/kube_deploy_cloud_app.md)
 
-Lab2 [Cloud Native App](labs/docker_cloud_app.md)
+1. [Kubernetes Infrastructure as Code](labs/kube_infra_as_code.md)
 
+1. [Docker for Tooling](labs/docker_tools_container.md)
 
-# ~~ Kubernetes Intro ~~
+1. [Kubernetes Environment Variables](labs/kube_env_vars.md)
 
-Lab3 [kube deploy cloud native app](labs/kube_deploy_cloud_app.md)
+1. [Kubernetes Override Starting Command](labs/kube_override_cmd.md)
 
-# ~~ Kubernetes Infrastructure as Code ~~
+1. [Kubernetes Ingress](labs/kube_setup_ingress.md)
 
-Lab4 [Declarative Definitions](labs/kube_infra_as_code.md)
+1. [Kubernetes Readiness](labs/kube_readiness.md)
 
-
-# ~~ Docker for Kubernetes Tooling   ~~
-
-Lab5 [Docker for Tooling](labs/docker_tools_container.md)
-
-
-# ~~ Kubernetes Enviornment variables   ~~
-
-Lab6 [Environment Variables](labs/kube_env_vars.md)
-
-
-# ~~ Kubernetes Override Starting Command   ~~
-
-Lab7 [Setting the Command to Run](labs/kube_override_cmd.md)
-
-# ~~ Kubernetes Ingress   ~~
-
-Lab8 [Kubernetes Ingress](labs/kube_setup_ingress.md)
-
-# ~~ Kubernetes Detecting an Unhealthy App   ~~
-
-Lab9 [Readiness in Kubes](labs/kube_readiness.md)
-
-Lab10 [Readiness in Kubes Part 2](labs/kube_readiness_2.md)
+1. [Kubernetes Readiness Part 2](labs/kube_readiness_2.md)
 
 
 ---
