@@ -37,7 +37,10 @@ Here are links and instructions per operating system:
 ##### Mac
   - Docker Desktop for Mac : https://hub.docker.com/editions/community/docker-ce-desktop-mac
 
-#### Optional Pre-reqs (For both Mac and Windows)
+##### Linux
+- [MicroK8s](https://microk8s.io/)
+
+#### Optional Pre-reqs (all OS's)
 ##### Install Visual Studio Code
 
 You will be editing YAML files and viewing Python code during the course of this exercise.  You can use any text editor, but Visual Studio Code is recommended.
