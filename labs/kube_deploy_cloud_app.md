@@ -29,7 +29,7 @@ Let's see what happens when we delete a Pod (which is one way to brute force sim
 kubectl delete pod cn-demo-***
 ```
 
-You deleted **that** specific Pod, but then another one with a new name showed up in its place.  That Pod is running the exact same container, and something extra in the Kubernetes cluster is making sure at least 1 of your Pods is running.  That **extra something** is called a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), and it is always working to ensure the number of Pods running for a given `Deployment` match its configured `replica` count.  The `kubectl run ...` command you just ran created a `Deployment` for you even though you didn't ask for one.  In fact, you should see it in your dashboard named `cn-demo`, happily reporting that `1/1` or "1 of 1" Pods are currently available.
+You deleted **that** specific Pod, but then another one with a new name showed up in its place.  That Pod is running the exact same image, and something extra in the Kubernetes cluster is making sure at least 1 of your Pods is running.  That **extra something** is called a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), and it is always working to ensure the number of Pods running for a given `Deployment` match its configured `replica` count.  The `kubectl run ...` command you just ran created a `Deployment` for you even though you didn't ask for one.  In fact, you should see it in your dashboard named `cn-demo`, happily reporting that `1/1` or "1 of 1" Pods are currently available.
 
 If you're thinking "a Deployment must be involved in how Horizontal Scaling works", you'd be right.  Let's attempt that next.
 

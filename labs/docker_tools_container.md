@@ -16,7 +16,37 @@ docker run --rm -it -v C:\Users\<username>\.kube\:/root/.kube CHANGEME/cloud-nat
 docker run --rm -it -v $HOME/.kube/:/root/.kube CHANGEME/cloud-native-demo-tools bash
 ```
 
-Once you see a `bash` prompt, type the following command.  You're technically on a Linux bash prompt at this point, so the next command is the same for all desktop platforms.
+You should eventually see a `bash` prompt which means you're running `bash`, in a Container, on a Linux Operating System (a virtualized Linux OS if you're on Windows or MacOS).  Next, run the `kubectl` command to validate our authentication tokens were mounted into the container correctly.
+
+```bash
+kubectl get all,endpoints,ingress
+```
+
+You should see output similar to the following:
+
+```
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   45d
+
+NAME                   ENDPOINTS           AGE
+endpoints/kubernetes   192.168.65.3:6443   45d
+```
+
+Next let's play with `watch`.  `watch` is simply a command that repeatedly runs another command on some interval.  Let's test it by running `watch date`.  `date` is the command we want to run over and over, and should just report the current date and time.
+
+```bash
+watch date
+```
+
+You should see the current date and time updated every 2 seconds.
+
+```bash
+Every 2.0s: date                             2019-12-27 16:32:25
+
+Fri Dec 27 16:32:25 UTC 2019
+```
+
+When you combine `watch` and `kubectl`, you can get a handy console based dashboard of the current state of your Kubernetes Namespace.  Run the following command, where we also include `-n 1` which will cause `watch` to rerun the `kubectl` command every 1 second instead of the default 2 seconds.
 
 ```bash
 watch -n 1 kubectl get all,endpoints,ingress
