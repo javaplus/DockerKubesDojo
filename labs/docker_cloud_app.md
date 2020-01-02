@@ -140,3 +140,4 @@ In your browser, navigate to the URL [http://localhost:5000](http://localhost:50
 ## Stop the container
 
 In the original CLI window where you issued the `docker run ...` command, type `CTRL+C` to stop the container.
+Previously hitting `CTRL+C` in the command prompt wouldn't stop the container.  However, if you run the **docker ps** command now, you shouldn't see any containers running.  This is because when we issued the run command this time we added the `--rm` which stops the container automatically when you break.
