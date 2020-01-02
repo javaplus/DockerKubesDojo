@@ -53,7 +53,16 @@ For more examples and ideas, visit:
 
 The output from this command actually tells you what it did.  When it says that it pulled the "hello-world" image from Docker Hub, it's referring to [hub.docker.com](https://hub.docker.com/) which is the main online repository for docker images.
 
+Speaking of images, let's see what images you have installed locally.
+
+Run the **Docker images** command to see the list of images on your machine.
+
+After running this command, you should see something like this:
+![Images](/labs/images/Images.png)
+
+Notice the **hello-world** image that was downloaded when you issued the run command.
+
+The K8s and docker images in the picture above are from the local Kubernetes installation. These K8s and Docker images were downloaded when you enabled Kubernetes on Docker Desktop.
 
 
 
-Maybe introduce how to create your own docker container... maybe a hello world python app so they will be more familar with the one they start to work with later. 
