@@ -1,6 +1,6 @@
 # ~~ The World of Containers ~~
 
-Intro to the Docker Command Line
+### Simple Docker Run
 
 We are going to jump right in and make sure you can run a Docker container locally by using the [Docker run command](https://docs.docker.com/engine/reference/commandline/run/).
 
@@ -64,5 +64,46 @@ Notice the **hello-world** image that was downloaded when you issued the run com
 
 The K8s and docker images in the picture above are from the local Kubernetes installation. These K8s and Docker images were downloaded when you enabled Kubernetes on Docker Desktop.
 
+### Run NGINX
 
+Now we are going to run a simple [NGINX](http://nginx.org/en/) container that can be used to host web content.
 
+We are going to use the **docker run** command again but use a different image (the nginx image) and also specify a port to expose the running container on.
+
+Run this command:
+
+```
+docker run -p 8080:80 nginx
+
+```
+This will start a container running NGINX.  NGINX listens on port 80 by default, so we are telling Docker to expose the internal port 80 to our local port 8080.  Notice the -p for publishing ports follows the syntax of <External Port>:<Internal Port>.
+ 
+ After running this command you should be able to open up a browser and go to http://localhost:8080 and see the nginx welcome screen.
+ 
+ ![NGINX Welcome](/labs/images/nginxWelcome.png)
+ 
+After hitting this in the browser, you should a log in the command prompt where you ran the container that shows a request was recieved.
+By default when you run a container with the docker run command, the standard out goes to your console.  To break out and get back to your command prompt you need to hit "CTRL + C" or similar break command.
+
+Do this now and break back to the command prompt.
+NOTE: This does not kill the running container.
+
+Run a [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) to see the currently running containers.
+
+You should see something like this:
+```
+D:\workspaces\DockerKubesDojo>docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+7e65845aa3ee        nginx               "nginx -g 'daemon of…"   4 minutes ago       Up 4 minutes        0.0.0.0:8080->80/tcp   recursing_khayyam
+
+```
+Note the **CONTAINER ID** is the unique ID for your running conatiner.  It's crucial to know if you want to do anything later with your running container... like stopping it.
+
+If you actually, want to stop or kill the running container, you need to use the [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) or the [docker kill](https://docs.docker.com/engine/reference/commandline/kill/) command.  I usually just kill them all and let the Docker gods sort em out.
+
+However, we will be more humane and issue a docker stop command.  NOTE that you must end the command with the container id.
+
+```
+docker stop <YOUR CONTAINER ID>
+```
+After this, re-run your **docker ps** command and notice that the container should no longer be running.
