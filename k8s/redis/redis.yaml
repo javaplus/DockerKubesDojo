@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: redis-test
+  name: redis-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: redis-test
+  template:
+    metadata:
+      labels:
+        run: redis-test
+    spec:
+      containers:
+      - image: redis
+        imagePullPolicy: Always
+        name: redis-test
+        resources:
+          limits:
+            cpu: 1
+            memory: 32Mi
+          requests:
+            cpu: 100m
+            memory: 32Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: redis-test
+  name: redis-test
+spec:
+  type: ClusterIP
+  selector:
+    run: redis-test
+  ports:
+  - port: 6379
+    targetPort: 6379
+    protocol: TCP

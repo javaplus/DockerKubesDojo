@@ -37,7 +37,10 @@ Here are links and instructions per operating system:
 ##### Mac
   - Docker Desktop for Mac : https://hub.docker.com/editions/community/docker-ce-desktop-mac
 
-#### Optional Pre-reqs (For both Mac and Windows)
+##### Linux
+- [MicroK8s](https://microk8s.io/)
+
+#### Optional Pre-reqs (all OS's)
 ##### Install Visual Studio Code
 
 You will be editing YAML files and viewing Python code during the course of this exercise.  You can use any text editor, but Visual Studio Code is recommended.
@@ -51,3 +54,40 @@ This is a useful, but not required, Chrome extension for viewing JSON output in 
 
 [Install using a Chrome browser](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa)
   
+---
+
+# ~~ Labs ~~
+
+1. [Intro to Docker and Containers](labs/docker_intro.md)
+
+1. [Docker with Cloud Native App](labs/docker_cloud_app.md)
+
+1. [Kubernetes Intro](labs/kube_deploy_cloud_app.md)
+
+1. [Kubernetes Infrastructure as Code](labs/kube_infra_as_code.md)
+
+1. [Docker for Tooling](labs/docker_tools_container.md)
+
+1. [Kubernetes Environment Variables](labs/kube_env_vars.md)
+
+1. [Kubernetes Override Starting Command](labs/kube_override_cmd.md)
+
+1. [Kubernetes Ingress](labs/kube_setup_ingress.md)
+
+1. [Kubernetes Readiness](labs/kube_readiness.md)
+
+1. [Kubernetes Readiness Part 2](labs/kube_readiness_2.md)
+
+
+---
+
+
+
+
+# ~~ Conclusion ~~
+
+This exercise has introduced you to some of the most commonly used features of Kubernetes for configuring and hosting applications using declarative, Infrastructure as Code techniques.  Even what we've shown here only begins to scratch the surface.  Here are other topics you'll want to dig deeper on as you continue your Kubernetes journey.
+
+* [Managing Compute Resources for Containers](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
+* [Declaring and using ConfigMaps to configure a Deployment](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+* [Declaring and using Secrets to configure a Deployment](https://kubernetes.io/docs/concepts/configuration/secret/)

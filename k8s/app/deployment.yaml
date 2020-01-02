@@ -1,0 +1,73 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: cloud-native-demo
+  name: cloud-native-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: cloud-native-demo
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: cloud-native-demo
+    spec:
+      containers:
+      - image: cloud-native-demo:1
+        imagePullPolicy: IfNotPresent
+        name: cloud-native-demo
+        env:
+          - name: REDIS_HOST
+            value: redis-test
+          - name: REDIS_PORT
+            value: "6379"
+          - name: USER_DEFINED_1
+            valueFrom:
+                configMapKeyRef:
+                  name: cloud-native-demo
+                  key: user-defined-1
+          - name: USER_DEFINED_2
+            valueFrom:
+                configMapKeyRef:
+                  name: cloud-native-demo
+                  key: user-defined-2
+          - name: USER_DEFINED_3
+            valueFrom:
+                configMapKeyRef:
+                  name: cloud-native-demo
+                  key: user-defined-3
+        command:
+          - sh
+          - -c
+          - |
+            python app.py --redis-host $(REDIS_HOST)
+        resources:
+          limits:
+            cpu: 1
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        livenessProbe:
+          timeoutSeconds: 1
+          periodSeconds: 1
+          initialDelaySeconds: 1
+          httpGet:
+            path: /live
+            port: 5000
+        readinessProbe:
+          timeoutSeconds: 1
+          periodSeconds: 1
+          initialDelaySeconds: 1
+          httpGet:
+            path: /ready
+            port: 5000
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 2

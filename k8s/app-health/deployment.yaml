@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: cn-demo
+  name: cn-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: cn-demo
+  template:
+    metadata:
+      labels:
+        run: cn-demo
+    spec:
+      containers:
+      - image: cloud-native-demo:1
+        imagePullPolicy: IfNotPresent
+        name: cloud-native-demo
+        env:
+          - name: REDIS_HOST
+            value: redis-test
+          - name: REDIS_PORT
+            value: "6379"
+          - name: USER_DEFINED_1
+            value: my-user-define-value-1
+          - name: USER_DEFINED_2
+            value: my-user-define-value-2
+          - name: USER_DEFINED_3
+            value: my-user-define-value-2
+        command:
+          - sh
+          - -c
+          - |
+            python app.py --redis-host $(REDIS_HOST)
+        resources:
+          limits:
+            cpu: 1
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        readinessProbe:
+          timeoutSeconds: 1
+          periodSeconds: 1
+          initialDelaySeconds: 1
+          httpGet:
+            path: /ready
+            port: 5000
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 2

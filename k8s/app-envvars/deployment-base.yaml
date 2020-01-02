@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: cn-demo
+  name: cn-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: cn-demo
+  template:
+    metadata:
+      labels:
+        run: cn-demo
+    spec:
+      containers:
+      - image: cloud-native-demo:1
+        imagePullPolicy: IfNotPresent
+        name: cn-demo
+        resources:
+          limits:
+            cpu: 1
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 2
