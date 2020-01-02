@@ -8,12 +8,12 @@ The tools Docker image does not contain authentication tokens to connect to your
 
 **Windows**
 ```bash
-docker run --rm -it -v C:\Users\<username>\.kube\:/root/.kube CHANGEME/cloud-native-demo-tools bash
+docker run --rm -it -v C:\Users\<username>\.kube\:/root/.kube javaplus/kube-demo-tools bash
 ```
 
 **MacOS/Linux**
 ```bash
-docker run --rm -it -v $HOME/.kube/:/root/.kube CHANGEME/cloud-native-demo-tools bash
+docker run --rm -it -v $HOME/.kube/:/root/.kube javaplus/kube-demo-tools bash
 ```
 
 You should eventually see a `bash` prompt which means you're running `bash`, in a Container, on a Linux Operating System (a virtualized Linux OS if you're on Windows or MacOS).  Next, run the `kubectl` command to validate our authentication tokens were mounted into the container correctly.
