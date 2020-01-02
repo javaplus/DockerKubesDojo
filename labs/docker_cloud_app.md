@@ -36,11 +36,15 @@ You're ready to kick the tires on this service to get a feel for it, with an end
 
 Before you even think about running this in Kubernetes, you want to run a single instance of it using your local Docker Desktop instance.  While a Kuberentes cluster will ultimately run your application container reliably at scale, it all starts with knowing how to build and run a single container using the Docker runtime.
 
-### Get the Code
+## Clone this repository
 
-We've provided the source code and Dockerfile to build the image in this repo.
+You'll be working with this repository and configuration contanied within.  Clone it to a location of your choosing and open the directory in VS Code.
 
-Clone this repo. https://github.com/javaplus/DockerKubesDojo.git
+> TIP: Run the following command from a directory containing no paths.  On Windows, a root directory of `C:\devl\ws` is a good convention.  In MacOS or Linux, this author uses a convention of `$HOME/code`.
+
+```bash
+git clone https://github.com/javaplus/DockerKubesDojo.git
+```
 
 After cloning the repo locally, open a command prompt to the root of the project where the Dockerfile resides.
 
