@@ -130,7 +130,7 @@ Now we are ready to run our newly created image.  To do that we are going back t
 > HINT: The `-p` switch exposes the port the container listens on to your localhost interface.
 
 ```bash
-docker run --rm -it -p 5000:5000 CHANGEME/cloud-native-demo:1
+docker run --rm -it -p 5000:5000 cloud-native-demo:1
 ```
 
 ## Validate the application container is running
