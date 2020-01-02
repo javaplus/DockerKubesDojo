@@ -9,7 +9,7 @@ Next we want to run our application in Kubernetes.  Open up a new Powershell or 
 **In a new console window** run the following to run the `cloud-native-demo` image as a container in Kubernetes:
 
 ```bash
-kubectl run cn-demo --image=CHANGEME/cloud-native-demo:1
+kubectl run cn-demo --image=cloud-native-demo:1
 ```
 
 Watch your console based dashboard.  You should see a Pod that starts with the name `cn-demo-` show up.  Behind the scenes, Kubernetes is retrieving the image and executing it using Docker (in the case of the Kubernetes instance provided by Docker Desktop).  If all goes well, you should eventually see that the Pod is up and running with output in the dashboard similar to the following:
