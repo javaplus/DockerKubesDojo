@@ -4,7 +4,7 @@ Now that you know how to run a single instance, it's time to try the same in Kub
 
 ## Run the cloud-native-demo image in Kubernetes
 
-Next we want to run the **real** application in Kubernetes and not just this **tools** image.  Open up a new Powershell or Bash window depending on your platform so we don't lose the console based dashboard we have running.
+Next we want to run our application in Kubernetes.  Open up a new Powershell or Bash window depending on your platform so we don't lose the console based dashboard we have running.
 
 **In a new console window** run the following to run the `cloud-native-demo` image as a container in Kubernetes:
 
