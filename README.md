@@ -81,41 +81,7 @@ This is a useful, but not required, Chrome extension for viewing JSON output in 
 
 ---
 
-# ~~ The Mission ~~
 
-You and your team are on a mission to begin rearchitecting your monolithic application towards a micro-service based architecture.  While your team has some experience working with Containers, they've asked for your help in realizing the full potential of Cloud Native patterns when it comes to the design and operational concerns of your new architecture.  You did your homework on [12-factor apps](https://12factor.net/) and the feature set of [Kubernetes](https://kubernetes.io/docs/concepts/) and have given your team a set of requirements to produce a first cut of a microservice which will serve as the foundational codebase for all your microservices.
-
-The features you've asked for in this foundational application include:
-
-* It follows the 12-factor Application [Configuration](https://12factor.net/config) principle.  Environmental configuration in this application will be read from Environment Variables.
-* It follows the 12-factor Application [Stateless Process](https://12factor.net/processes) principle.  It is completely stateless and scales horizontally.
-* All dependencies are declared and ship with the application as an OCI compatible image.
-* The application supports Infrastructure as Code principles to enable a Continuous Delivery pipeline.
-* The application must expose information about its health in order for Kubernetes to know it's running and can accept traffic.
-
-And the team has delivered.  They have created an [OCI compatible image](https://www.opencontainers.org/) and have already loaded it into the [Docker Trusted Registry](Change ME!).  They've given you the following information on how it behaves and the default URL endpoints it exposes.
-
-* It's a Python application with a dependency on a Redis instance.  The application is configurable through command line switches and the documentation for them can be found by running `python app.py --help`.
-* When running, it listens for HTTP connections on port `5000` by default.  This is configurable.
-* The following URL endpoints are available:
-  * `/`
-    * Returns a JSON message with information about the application and its configuration.
-  * `/counter`
-    * Returns a count of how many times the `/counter` URL has been accessed for this particular application.  The key for the count is the `HOSTNAME` environment variable for the running application.
-  * `/counter/reset`
-    * Resets the counter being returned in `/counter` to `0`.
-  * `/live`
-    * Returns a `200` HTTP status code if the application is running.  Useful for a [Kubernetes liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
-  * `/live/{delay}}`
-    * Introduces a `delay` for the HTTP response of the `/live` endpoint in seconds.  The team left this in for you to validate your liveness probes are configured correctly for when this endpoint doesn't respond in a timely manner (which could indicate the service is not live anymore).
-  * `/ready`
-    * Similar to the `/live` endpoint, but this one goes the extra mile and makes sure the service has a healthy connection to the backing Redis service.  This is useful for [Kubernetes readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) which will not send network traffic to the service until it indicates its ready.
-
-You're ready to kick the tires on this service to get a feel for it, with an end goal of creating the Kubernetes manifests that can host the appliation.  The manifests, in YAML format, will live alongside this codebase and augment the foundational codebase with the foundational Configuration as Code to run it in any Kubernetes cluster.
-
-
-
----
 
 
 # ~~ Conclusion ~~
