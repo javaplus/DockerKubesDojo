@@ -8,16 +8,6 @@ So there's a lot of good configuration already in our cluster for the `Deploymen
 
 > Note: Up to now, it didn't matter which directory you were running kubectl commands from, since we were just getting details on our Kubernetes environment, or else communicating directly between docker and the cluster.  From here on out we will be using YAML files (included in this repository) to describe the deployment, and so you will need to execute these commands from your root project directory.
 
-## Clone this repository
-
-You'll be working with this repository and configuration contanied within.  Clone it to a location of your choosing and open the directory in VS Code.
-
-> TIP: Run the following command from a directory containing no paths.  On Windows, a root directory of `C:\devl\ws` is a good convention.  In MacOS or Linux, this author uses a convention of `$HOME/code`.
-
-```bash
-git clone https://github.com/javaplus/DockerKubesDojo.git
-```
-
 ## Get the Configuration for your Deployment
 
 ```bash
