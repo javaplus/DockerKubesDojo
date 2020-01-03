@@ -5,7 +5,7 @@ While our application has the ability to read directly from the configured Envir
 This program actually accepts a few configuration values on the CLI.  Our always helpful development team left a `--help` argument in there to help discover what some of them are.  Let's run that now in a new container using Docker.  It only needs to run long enough to give us the output.  In a new console window, run the following:
 
 ```bash
-docker run --rm CHANGEME/cloud-native-demo:1 python app.py --help
+docker run --rm cloud-native-demo:1 python app.py --help
 ```
 
 You should see the following output:
