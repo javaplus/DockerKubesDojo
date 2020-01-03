@@ -60,9 +60,13 @@ Try some other scenarios to see how Kubernetes behaves:
 * Delete one of the newly created `Pods` with `kubectl delete ...`
 * Scale the `Deployment` in and out, using different numbers for `--replicas`
 * Do you notice anything interesting with which Pods Kubernetes decides to keep when you scale in?  Look at the time the Pod has been running.
-
-NOTE: To delete the deployment use this command:
+* If you need to delete the deployment altogether you can use this command:
 ```
 kubectl delete deploy cn-demo
 
+```
+NOTE: If you delete it, you will have to restart it for the next labs.
+Remember the command to start it is:
+```bash
+kubectl run cn-demo --image=cloud-native-demo:1
 ```
