@@ -141,7 +141,19 @@ docker run --rm -it -p 5000:5000 cloud-native-demo:1
 
 In your browser, navigate to the URL [http://localhost:5000](http://localhost:5000).  You should see a JSON response with some information about the running application.  If not, double check the `docker run ...` command you issued and look for any errors in the console output.
 
+If it's working, celebrate!  You successfully built and ran your own image!
+
 ## Stop the container
 
-In the original CLI window where you issued the `docker run ...` command, type `CTRL+C` to stop the container.
+In the window where you issued the `docker run ...` command, type `CTRL+C` to stop the container.
 Previously hitting `CTRL+C` in the command prompt wouldn't stop the container.  However, if you run the **docker ps** command now, you shouldn't see any containers running.  This is because when we issued the run command this time we added the `--rm` which stops the container automatically when you break.
+
+## Stretch Goal!!!!!!
+
+Want more practice creating your own Docker images???  In the previous stretch goal, we had you run an nginx container that mounted a local folder that allowed you to serve up your own custom HTML file.  We want to end up with the same result, but this time without a file mount.  Instead of using a file mount, create a Docker image that has your custom HTML file packaged in it.  
+
+**HINTS**
+ - Create a Dockerfile that starts with the base of nginx (that is **FROM nginx**)
+ - Use the COPY command to copy your custom HTML file into the image (The destination inside the image can be determined from the nginx "How to use ths image" section on hub.docker.com or by looking at your volume mount location from the previous Stretch Goal
+ - If you don't specify a CMD, it should use the one from the base image... this is what you want in this case.
+ - Ultimately, when finished buiding your image, you should be able to do a simple docker run with only the "-p 8080:80" option to publish your port and your custom image name.
