@@ -15,7 +15,7 @@ spec:
         run: cn-demo
     spec:
       containers:
-      - image: CHANGEME/cloud-native-demo:1
+      - image: cloud-native-demo:1
         imagePullPolicy: IfNotPresent
         name: cloud-native-demo
         env:
