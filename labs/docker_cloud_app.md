@@ -157,3 +157,14 @@ Want more practice creating your own Docker images???  In the previous stretch g
  - Use the COPY command to copy your custom HTML file into the image (The destination inside the image can be determined from the nginx "How to use ths image" section on [hub.docker.com](https://hub.docker.com/_/nginx) or by looking at your volume mount location from the previous Stretch Goal
  - If you don't specify a CMD, it should use the one from the base image... this is what you want in this case.
  - Ultimately, when finished buiding your image, you should be able to do a simple docker run with only the "-p 8080:80" option to publish your port and your custom image name.
+
+<details>
+  <summary>Click to expand More Hints/Spoilers</summary>
+ 
+ #### Dockerfile
+  - Should start with **FROM nginx**
+  - Should have a COPY command to COPY your HTML file to /usr/share/nginx/html
+  - Can build with **docker build -t mynginx:1 .**'
+ #### Running the container
+  - Run command should be **docker run -p 8080:80 mynginx:1** (assuming you tag it with mynginx:1)
+</details>
