@@ -85,15 +85,21 @@ NOTE: Look at the [offical documentation here](https://kubernetes.io/docs/refere
 
 Once you get a bash prompt issue a **pwd** command to see what the current working directory is.
 Do you know why this is the working directory?
+
 Look at the Dockerfile again that you used to create this image.
+
 Also, do an **ls** to see all the files that were copied into this working directory and then figure out how they got there.
+
 Now, try to actually create a new file in that directory.  You can just do a simple echo command like this:
 ```bash
 echo "hello" > hello.txt
 ```
 After creating the file, exit out of the shell session by simply typing **exit**.
+
 Now, reconnect to the pod again and make sure your file is still there. (It should be).
+
 Now, let's delete the pod and let the deployment spin up a new pod.
+
 When your new pod finishes starting, exec into it and see if your file is still there.
 Can you figure out why or why not?
 
