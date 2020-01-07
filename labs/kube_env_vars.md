@@ -2,7 +2,7 @@
 
 ## Redeploy the baseline
 
-One of your original asks was that this application be configurable via Environment Variables.  We're now going to put that to the test.  Our first steps will be to redeploy the application, now using the declarative YAML in the `k8s/app-01` directory of this project.  To do that, we're going to use the `kubectl apply ...` command.
+One of your original asks was that this application be configurable via Environment Variables.  We're now going to put that to the test.  Our first steps will be to redeploy the application, now using the declarative YAML in the `k8s/app-envvars` directory of this project.  To do that, we're going to use the `kubectl apply ...` command.
 
 ```bash
 kubectl apply -f k8s/app-envvars/deployment-base.yaml
@@ -48,7 +48,7 @@ Once you're finished, stop the port forwarding command by pressing `CTRL+C`.
 
 > TIP: The completed deployment configuration is in the `k8s/app-envvars/deployment-with-envvars.yaml` file if you need help through this section.
 
-Right now we have a lot of `null` values for the `user_defined_#` variables.  Let's fix that.  In the `k8s/app-envvars/deployment-base.yaml` file, find the section that looks like the following:
+Right now we have a lot of `null` values for the `user_defined_#` variables.  Let's fix that.  In the **`k8s/app-envvars/deployment-base.yaml`** file, find the section that looks like the following:
 
 ```yaml
       containers:
