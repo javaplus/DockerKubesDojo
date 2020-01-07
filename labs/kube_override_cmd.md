@@ -32,7 +32,10 @@ Soon, we're going to deploy an instance of Redis into the cluster to connect to.
 
 You can override the start command (right now it's defaulting to what was defined in the Dockerfile) using the `command` property in your `Deployment` YAML.  The `command` property goes at the same depth the `env` property did in the last step.  Add the following to your `Deployment` and try to redeploy it with the `kubectl apply -f ...` command used before.  Take note of how `REDIS_HOST` is passed, surrounded by `$()`.  This is important for the variable to resolve at runtime, otherwise it would just take the literal string `$REDIS_HOST`.
 
+Go ahead and update the **k8s/app-envvars/deployment-base.yaml** now to override the command the container should run.  See the syntax below.
+
 > Use the completed `deployment-with-envvars.yaml` file as a guide if you're having trouble placing this configuration in the file.
+
 
 ```yaml
         command:
@@ -42,4 +45,24 @@ You can override the start command (right now it's defaulting to what was define
             python app.py --redis-host $(REDIS_HOST)
 ```
 
-We will test that this is working correctly in a bit, but first let's set up `Ingress` and a `Service` to make testing our application via a browser a little easier going forward.
+After updating the yaml file, go ahead and test it again.
+If you have pods already running, you may want to delete your deployment first by using the  **kubectl delete deploy** command:
+```bash
+kubectl delete deploy <deployment name>
+```
+Now create the deployment with your new overridden command by using the **kubectl apply** command:
+
+```bash
+kubectl apply -f k8s/app-envvars/deployment-base.yaml
+``` 
+Watch your console to see your new pod start up.  Once you have a new running pod, we will use the port forward command to connect to the pod.
+
+Last time we created a service to expose your deployment, but if need be you can port-forward directly into a single pod like this:
+```bash
+
+kubectl port-forward pod/<podname> 5000:5000
+```
+Port forward to the pod and then test the application by hitting the [http://localhost:5000](http://localhost:5000) endpoint again.
+
+You should see a similar JSON response as last time, except this time you should see the redis host has the value you specified as an environment variable in your deployment definition.
+
