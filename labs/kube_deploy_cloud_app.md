@@ -60,7 +60,7 @@ Try some other scenarios to see how Kubernetes behaves:
 * Delete one of the newly created `Pods` with `kubectl delete ...`
 * Scale the `Deployment` in and out, using different numbers for `--replicas`
 * Do you notice anything interesting with which Pods Kubernetes decides to keep when you scale in?  Look at the time the Pod has been running.
-* If you need to delete the deployment altogether you can use this command:
+* If you need to delete the **deployment** altogether (which will remove the pods as well) you can use this command:
 ```
 kubectl delete deploy cn-demo
 
@@ -70,3 +70,32 @@ Remember the command to start it is:
 ```bash
 kubectl run cn-demo --image=cloud-native-demo:1
 ```
+
+### Stretch Goal
+
+Get up and stretch!!!  Just kidding... ok maybe that's not a bad idea... but to play more with kubernetes, let's see if we can learn how to connect to one of the running containers and get a shell so we can poke around and see the files that are in our running container.  What we will do is use the **kube exec** command to get a bash shell into one of our pods.
+
+So, make sure you have at least one pod running, and then use the kube exec command to get a shell into the container.
+The format of the kube exec command is like this:
+```bash
+kube exec -it <pod name> /bin/bash
+```
+
+NOTE: Look at the [offical documentation here](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) to see what the **'-it'** is doing.  
+
+Once you get a bash prompt issue an **pwd** command to see what the current working directory is.
+Do you know why this is the working directory?
+Look at the Dockerfile again that you used to create this image.
+Also, do an **ls** to see all the files that were copied into this working directory and then figure out how they got there.
+Now, try to actually create a new file in that directory.  You can just do a simple echo command like this:
+```bash
+echo "hello" > hello.txt
+```
+After creating the file, exit out of the shell session by simply typing **exit**.
+Reconnect to the pod again and make sure your file is still there. (It should be).
+Now, delete the pod and let wait for the deployment to spin up a new pod.
+When your new pod finishes starting, exec into it and see if your file is still there.
+Can you figure out why or why not?
+
+
+
