@@ -83,7 +83,7 @@ kube exec -it <pod name> /bin/bash
 
 NOTE: Look at the [offical documentation here](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) to see what the **'-it'** is doing.  
 
-Once you get a bash prompt issue an **pwd** command to see what the current working directory is.
+Once you get a bash prompt issue a **pwd** command to see what the current working directory is.
 Do you know why this is the working directory?
 Look at the Dockerfile again that you used to create this image.
 Also, do an **ls** to see all the files that were copied into this working directory and then figure out how they got there.
@@ -97,5 +97,22 @@ Now, let's delete the pod and let the deployment spin up a new pod.
 When your new pod finishes starting, exec into it and see if your file is still there.
 Can you figure out why or why not?
 
+<details>
+  <summary>Click to expand for Answers</summary>
+ 
+ #### Explanation
+  
+ - Why is the working directory "/usr/src/app"?
+  - Because the [Dockerfile on line 3](https://github.com/javaplus/DockerKubesDojo/blob/42f4756afe04e07389f476a160199d7a2c12cc73/Dockerfile#L3) set the "WORKDIR" to "/usr/src/app" 
+  - What does the **'-it'** do with the exec command?
+    - The 'i' says pass the STDIN of your command prompt to the container
+    - The 't' says the STDIN is a TTY
+    - Most think of the **'-it'** just as an interactive terminal because that's what it produces.
+    
+  - Why did the hello.txt file disappear after deleting the pod and letting the deployment create a new one?
+    - Because the container in the Pod is an instance of the image you specify.  When we added the file, we added it to that specific running instance... think of it like modifying temporary memory or modifying an instance of a class.  Once we delete that Pod that deletes that instance of the container.  Then the deployment starts up a new Pod which creates a new instance of the container off of the image we specified.  The only thing that's going to be in the running container is what we specified in the image definition (assuming we don't give special commands to the start up). 
+  
+  
+</details>
 
 
