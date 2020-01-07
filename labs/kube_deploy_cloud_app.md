@@ -92,8 +92,8 @@ Now, try to actually create a new file in that directory.  You can just do a sim
 echo "hello" > hello.txt
 ```
 After creating the file, exit out of the shell session by simply typing **exit**.
-Reconnect to the pod again and make sure your file is still there. (It should be).
-Now, delete the pod and let wait for the deployment to spin up a new pod.
+Now, reconnect to the pod again and make sure your file is still there. (It should be).
+Now, let's delete the pod and let the deployment spin up a new pod.
 When your new pod finishes starting, exec into it and see if your file is still there.
 Can you figure out why or why not?
 
