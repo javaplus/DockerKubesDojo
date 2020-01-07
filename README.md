@@ -41,7 +41,7 @@ Here are links and instructions per operating system:
 - [MicroK8s](https://microk8s.io/)
 
 
-#### Testing your Installation
+### Testing your Installation
 
 Run the **docker version** command and you should see something like this:
 ```
