@@ -76,6 +76,7 @@ Run the docker build command like this:
 docker build -t cloud-native-demo:1 .
 
 ```
+NOTE: There is a period at the end of that command and it is important!
 
 The -t tells Docker to tag this image with the name "cloud-native-demo" and create version "1".  The '.' at the very end tell docker where to find the Dockerfile.  In our case, this is the current directory, thus the '.'.
 
