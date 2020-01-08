@@ -18,7 +18,7 @@ Enough talking, let's run a container.  Issue this command:
 docker run hello-world:latest
 
 ```
-This will cause Docker to pull down the latest version of the hello-world image and then run it. 
+This will cause Docker to pull down the latest version of the hello-world image and then run it.
 You should see something like this:
 
 ```
@@ -77,11 +77,13 @@ docker run -p 8080:80 nginx
 
 ```
 This will start a container running NGINX.  NGINX listens on port 80 by default, so we are telling Docker to expose the internal port 80 to our local port 8080.  Notice the -p for publishing ports follows the syntax of <External Port>:<Internal Port>.
- 
+
  After running this command you should be able to open up a browser and go to http://localhost:8080 and see the nginx welcome screen.
- 
+
+ *NOTE: If you're using **Docker Toolbox** you actually need the IP address of the virtual machine instead of localhost. You can get this by issuing `docker-machine ip default`, where `default` is the name of your docker-machine*
+
  ![NGINX Welcome](/labs/images/nginxWelcome.png)
- 
+
 After hitting this in the browser, you should a log in the command prompt where you ran the container that shows a request was recieved.
 By default when you run a container with the docker run command, the standard out goes to your console.  To break out and get back to your command prompt you need to hit "CTRL + C" or similar break command.
 
@@ -109,7 +111,7 @@ docker stop <YOUR CONTAINER ID>
 After this, re-run your **docker ps** command and notice that the container should no longer be running.
 
 
-### STRETCH GOAL 
+### STRETCH GOAL
 
 Your mission if you choose to accept it, is to run an nginx container that hosts your own created HTML file.
 You will accomplish this by using the docker run command as you did above to create an nginx container, but this time you will use a [volume mount](https://docs.docker.com/storage/volumes/) to mount a local **folder** that contains an HTML file into the running container.
@@ -120,14 +122,12 @@ So, first create your own HTML file and save it to a preferably simple/short pat
 
 Now you will need to run the nginx container with the '-v' option and replace the "/some/content" with the path to the **folder** containing your newly created HTML.  NOTE: the example from hub.docker.com doesn't add the -p (publish port) option, so if you use it as is, you won't be able to access your nginx container... so add the "-p 8080:80" option to it along with the new volume option.  
 
-NOTE: When you run the command the first time with a volume option, Docker will prompt you to ask you if you want to share the folder with Docker.  So, watch for a pop-up to ask you to share the folder.  Also, if you are on Windows, you are best to run this command from the basic command prompt or powershell. Using something like git bash can confuse things since it typically expect linux style paths.
+NOTE: When you run the command the first time with a volume option, Docker will prompt you to ask you if you want to share the folder with Docker (excludes Docker Toolbox).  So, watch for a pop-up to ask you to share the folder.  Also, if you are on Windows, you are best to run this command from the basic command prompt or powershell. Using something like git bash can confuse things since it typically expect linux style paths.
+
+NOTE: For volume mounts in windows, if you continue to receive errors for invalid volume specification, try using linux style paths instead. E.g use `/c/Users/me/test_files:/usr/share/nginx/html/mine` instead of `C:\Users\me\test_files:/usr/share/nginx/html/mine`
 
 Also, be aware of the docker run syntax...
 ```
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```
-
-
-
-
