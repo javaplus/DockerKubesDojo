@@ -165,7 +165,7 @@ Want more practice creating your own Docker images???  In the previous stretch g
  #### Dockerfile
   - Should start with **FROM nginx**
   - Should have a COPY command to COPY your HTML file to /usr/share/nginx/html
-  - Can build with **docker build -t mynginx:1 .**'
+  - Can build with **docker build -t mynginx:1 .**
  #### Running the container
   - Run command should be **docker run -p 8080:80 mynginx:1** (assuming you tag it with mynginx:1)
 </details>
