@@ -78,7 +78,7 @@ Get up and stretch!!!  Just kidding... ok maybe that's not a bad idea... but to 
 So, make sure you have at least one pod running, and then use the kube exec command to get a shell into the container.
 The format of the kube exec command is like this:
 ```bash
-kube exec -it <pod name> /bin/bash
+kubectl exec -it <pod name> /bin/bash
 ```
 
 NOTE: Look at the [offical documentation here](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) to see what the **'-it'** is doing.  
