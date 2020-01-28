@@ -86,7 +86,7 @@ After hitting this in the browser, you should a log in the command prompt where 
 By default when you run a container with the docker run command, the standard out goes to your console.  To break out and get back to your command prompt you need to hit "CTRL + C" or similar break command.
 
 Do this now and break back to the command prompt.
-NOTE: This does not kill the running container.
+NOTE: On windows, this usually does not kill the running container. On unix or mac os, this will kill the running container.
 
 Run a [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) to see the currently running containers.
 
