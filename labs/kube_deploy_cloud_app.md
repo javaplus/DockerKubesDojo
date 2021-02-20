@@ -73,7 +73,7 @@ kubectl run cn-demo --image=cloud-native-demo:1
 
 ### Stretch Goal
 
-Get up and stretch!!!  Just kidding... ok maybe that's not a bad idea... but to play more with kubernetes, let's see if we can learn how to connect to one of the running containers and get a shell so we can poke around and see the files that are in our running container.  What we will do is use the **kube exec** command to get a bash shell into one of our pods.
+Get up and stretch!!!  Just kidding... ok maybe that's not a bad idea... but to play more with kubernetes, let's see if we can learn how to connect to one of the running containers and get a shell so we can poke around and see the files that are in our running container.  What we will do is use the **kubectl exec** command to get a bash shell into one of our pods.
 
 So, make sure you have at least one pod running, and then use the kube exec command to get a shell into the container.
 The format of the kube exec command is like this:
