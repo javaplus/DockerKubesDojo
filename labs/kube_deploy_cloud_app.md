@@ -27,7 +27,7 @@ pod/cn-demo-759dc65498-j2mm6   1/1     Running   0          22s
 
 ## Play with the new Deployment
 
-It's time to explore some behavior and terminology of Kubernetes.  First up is the [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/).  We wont' go too deep on all the specifics, but a Pod is where the configuration for your running container resides.  It turns out you can run multiple containers in a single Pod, but that is outside the scope of this exercise.  To learn more about how and why you would want to do this, search around for Sidecar and Ambassador patterns.
+It's time to explore some behavior and terminology of Kubernetes.  First up is the [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/).  We won't go too deep on all the specifics, but a Pod is where the configuration for your running container resides.  It turns out you can run multiple containers in a single Pod, but that is outside the scope of this exercise.  To learn more about how and why you would want to do this, search around for Sidecar and Ambassador patterns.
 
 Let's see what happens when we delete a Pod (which is one way to brute force simulate a failed container).  Run the following command, filling in the `cn-demo-***` with the unique name Kubernetes assigned your Pod, and then keep running the **kubectl get pods** command to see what happens to your pod.  Things will happen fast!
 
@@ -73,10 +73,10 @@ kubectl run cn-demo --image=cloud-native-demo:1
 
 ### Stretch Goal
 
-Get up and stretch!!!  Just kidding... ok maybe that's not a bad idea... but to play more with kubernetes, let's see if we can learn how to connect to one of the running containers and get a shell so we can poke around and see the files that are in our running container.  What we will do is use the **kube exec** command to get a bash shell into one of our pods.
+Get up and stretch!!!  Just kidding... ok maybe that's not a bad idea... but to play more with kubernetes, let's see if we can learn how to connect to one of the running containers and get a shell so we can poke around and see the files that are in our running container.  What we will do is use the **kubectl exec** command to get a bash shell into one of our pods.
 
-So, make sure you have at least one pod running, and then use the kube exec command to get a shell into the container.
-The format of the kube exec command is like this:
+So, make sure you have at least one pod running, and then use the kubectl exec command to get a shell into the container.
+The format of the kubectl exec command is like this:
 ```bash
 kubectl exec -it <pod name> /bin/bash
 ```
