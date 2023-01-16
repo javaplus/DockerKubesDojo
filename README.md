@@ -1,4 +1,10 @@
-# Docker and Kubernetes Dojo
+# DEPRECATED!!!!!!!!!!!!!!!!!
+
+## THIS TUTORIAL HAS BEEN SPLIT INTO TWO SEPARATE TUTORIALS (links below). THIS ONE IS NO LONGER MANTAINED.
+
+[Docker Tutorial](https://github.com/javaplus/DockerDojo)
+[Kubernetes Tutorial](https://github.com/javaplus/KubernetesDojo)
+
 Tutorial on Using Docker and Kubernetes
 
 **Big thanks to [Michael Frayer](https://github.com/frayer) for most of the content of this tutorial is from him!**
